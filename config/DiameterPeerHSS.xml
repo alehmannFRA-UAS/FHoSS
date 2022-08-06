@@ -11,8 +11,8 @@
 	Workers="4"
 	QueueLength="32"
 >
-	<Peer FQDN="icscf.mnc001.mcc001.3gppnetwork.org" Realm="open-ims.test" port="3868" /> 
-	<Peer FQDN="scscf.mnc001.mcc001.3gppnetwork.org" Realm="open-ims.test" port="3868" /> 
+	<Peer FQDN="icscf.mnc001.mcc001.3gppnetwork.org" Realm="mnc001.mcc001.3gppnetwork.org" port="3868" /> 
+	<Peer FQDN="scscf.mnc001.mcc001.3gppnetwork.org" Realm="mnc001.mcc001.3gppnetwork.org" port="3868" /> 
 
 	<Acceptor port="3868" bind="10.0.2.150" />
 	
