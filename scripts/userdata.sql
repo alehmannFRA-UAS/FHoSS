@@ -38,8 +38,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `application_server` WRITE;
 /*!40000 ALTER TABLE `application_server` DISABLE KEYS */;
-INSERT INTO `application_server` VALUES (1,'default_as','sip:127.0.0.1:5065',0,'','presence.open-ims.test',1024,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
-INSERT INTO `application_server` VALUES (2,'smsc_as','sip:smsc.open-ims.test:7090',0,'','smsc.open-ims.test',1024,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+INSERT INTO `application_server` VALUES (1,'default_as','sip:10.0.2.250:5065',0,'','presence.open-ims.test',1024,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
 /*!40000 ALTER TABLE `application_server` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -119,7 +118,6 @@ UNLOCK TABLES;
 LOCK TABLES `ifc` WRITE;
 /*!40000 ALTER TABLE `ifc` DISABLE KEYS */;
 INSERT INTO `ifc` VALUES (1,'default_ifc',1,1,-1);
-INSERT INTO `ifc` VALUES (2,'smsc_ifc',2,2,-1);
 /*!40000 ALTER TABLE `ifc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -129,7 +127,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `impi` WRITE;
 /*!40000 ALTER TABLE `impi` DISABLE KEYS */;
-INSERT INTO `impi` VALUES (4,1,'alice@open-ims.test','alice',127,1,'\0\0','\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '000000000000','','',0,3600,1),(2,2,'bob@open-ims.test','bob',255,1,'\0\0','\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0','\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0','000000000000','','',0,3600,1);
+INSERT INTO `impi` VALUES (4,1,'alice@mnc001.mcc001.3gppnetwork.org','alice',127,1,'\0\0','\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0', '000000000000','','',0,3600,1),(2,2,'bob@mnc001.mcc001.3gppnetwork.org','bob',255,1,'\0\0','\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0','\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0\0','000000000000','','',0,3600,1);
 /*!40000 ALTER TABLE `impi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -149,7 +147,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `impu` WRITE;
 /*!40000 ALTER TABLE `impu` DISABLE KEYS */;
-INSERT INTO `impu` VALUES (1,'sip:alice@open-ims.test',0,0,0,1,1,1,'','',0,1),(2,'sip:bob@open-ims.test',0,0,0,1,2,1,'','',0,1);
+INSERT INTO `impu` VALUES (1,'sip:alice@mnc001.mcc001.3gppnetwork.org',0,0,0,1,1,1,'','',0,1),(2,'sip:bob@mnc001.mcc001.3gppnetwork.org',0,0,0,1,2,1,'','',0,1);
 /*!40000 ALTER TABLE `impu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -169,7 +167,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `imsu` WRITE;
 /*!40000 ALTER TABLE `imsu` DISABLE KEYS */;
-INSERT INTO `imsu` VALUES (1,'alice','','',1,1),(2,'bob','','',1,1);
+INSERT INTO `imsu` VALUES (1,'alice','sip:scscf.mnc001.mcc001.3gppnetwork.org:5060','scscf.mnc001.mcc001.3gppnetwork.org',1,1),(2,'bob','sip:scscf.mnc001.mcc001.3gppnetwork.org:5060','scscf.mnc001.mcc001.3gppnetwork.org',1,1);
 /*!40000 ALTER TABLE `imsu` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -179,7 +177,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `preferred_scscf_set` WRITE;
 /*!40000 ALTER TABLE `preferred_scscf_set` DISABLE KEYS */;
-INSERT INTO `preferred_scscf_set` VALUES (1,1,'scscf1','sip:scscf.open-ims.test:6060',0);
+INSERT INTO `preferred_scscf_set` VALUES (1,1,'scscf1','sip:scscf.mnc001.mcc001.3gppnetwork.org:5060',0);
 /*!40000 ALTER TABLE `preferred_scscf_set` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -227,7 +225,6 @@ UNLOCK TABLES;
 LOCK TABLES `sp` WRITE;
 /*!40000 ALTER TABLE `sp` DISABLE KEYS */;
 INSERT INTO `sp` VALUES (1,'default_sp',0);
-INSERT INTO `sp` VALUES (2,'smsc_sp',0);
 /*!40000 ALTER TABLE `sp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -238,7 +235,6 @@ UNLOCK TABLES;
 LOCK TABLES `sp_ifc` WRITE;
 /*!40000 ALTER TABLE `sp_ifc` DISABLE KEYS */;
 INSERT INTO `sp_ifc` VALUES (1,1,1,0);
-INSERT INTO `sp_ifc` VALUES (2,2,2,0);
 /*!40000 ALTER TABLE `sp_ifc` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -258,7 +254,6 @@ UNLOCK TABLES;
 LOCK TABLES `spt` WRITE;
 /*!40000 ALTER TABLE `spt` DISABLE KEYS */;
 INSERT INTO `spt` VALUES (2,1,0,0,1,NULL,'PUBLISH',NULL,NULL,NULL,NULL,NULL,0),(5,1,0,0,2,NULL,NULL,'Event','.*presence.*',NULL,NULL,NULL,0),(7,1,0,1,1,NULL,'PUBLISH',NULL,NULL,NULL,NULL,NULL,0),(6,1,0,0,3,NULL,NULL,NULL,NULL,0,NULL,NULL,0),(8,1,0,1,2,NULL,NULL,'Event','.*presence.*',NULL,NULL,NULL,0),(9,1,0,1,3,NULL,NULL,NULL,NULL,3,NULL,NULL,0),(10,1,0,2,1,NULL,'SUBSCRIBE',NULL,NULL,NULL,NULL,NULL,0),(11,1,0,2,2,NULL,NULL,'Event','.*presence.*',NULL,NULL,NULL,0),(12,1,0,2,3,NULL,NULL,NULL,NULL,1,NULL,NULL,0),(13,1,0,3,1,NULL,'SUBSCRIBE',NULL,NULL,NULL,NULL,NULL,0),(14,1,0,3,2,NULL,NULL,'Event','.*presence.*',NULL,NULL,NULL,0),(15,1,0,3,3,NULL,NULL,NULL,NULL,2,NULL,NULL,0);
-INSERT INTO `spt` VALUES (16,2,0,0,1,NULL,'MESSAGE',NULL,NULL,NULL,NULL,NULL,0),(17,2,0,0,2,NULL,NULL,'Content-Type','application/vnd.3gpp.sms',NULL,NULL,NULL,0),(18,2,0,0,3,NULL,NULL,NULL,NULL,0,NULL,NULL,0);
 /*!40000 ALTER TABLE `spt` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -269,7 +264,6 @@ UNLOCK TABLES;
 LOCK TABLES `tp` WRITE;
 /*!40000 ALTER TABLE `tp` DISABLE KEYS */;
 INSERT INTO `tp` VALUES (1,'default_tp',0);
-INSERT INTO `tp` VALUES (2,'smsc_tp',0);
 /*!40000 ALTER TABLE `tp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -279,7 +273,7 @@ UNLOCK TABLES;
 
 LOCK TABLES `visited_network` WRITE;
 /*!40000 ALTER TABLE `visited_network` DISABLE KEYS */;
-INSERT INTO `visited_network` VALUES (1,'open-ims.test');
+INSERT INTO `visited_network` VALUES (1,'mnc001.mcc001.3gppnetwork.org');
 /*!40000 ALTER TABLE `visited_network` ENABLE KEYS */;
 UNLOCK TABLES;
 
